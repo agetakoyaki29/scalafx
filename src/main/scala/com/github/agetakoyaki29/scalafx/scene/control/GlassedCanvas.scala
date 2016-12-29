@@ -7,15 +7,19 @@ import javafx.scene.layout.StackPane
 import javafx.stage.Screen
 import javafx.beans.binding.ObjectBinding
 import javafx.geometry.Point2D
+import javafx.scene.control.ScrollPane.ScrollBarPolicy
 
 
 class GlassedCanvas extends ScrollPane {
   
   private val root: ScrollPane = this
   
-//  ; {
+  ; {
+    root.setPannable(false)
+    root.setHbarPolicy(ScrollBarPolicy.NEVER)
+    root.setVbarPolicy(ScrollBarPolicy.NEVER)
 //    root.setFocusTraversable(false)
-//  }
+  }
   
   val (coldGC, hotGC) = {
     val cold, hot = { // full screen canvas
