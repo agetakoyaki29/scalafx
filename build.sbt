@@ -4,7 +4,7 @@ val scalatest = "org.scalatest" %% "scalatest" % "2.2.5" % "test"
 
 lazy val root = (project in file(".")).
   settings(
-    name := "scala editer fx",
+    name := "scalafx",
     version := "0.0",
     scalaVersion := "2.11.8",
 
