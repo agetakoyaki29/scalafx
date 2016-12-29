@@ -10,27 +10,26 @@ import javafx.geometry.Point2D
 
 
 class GlassedCanvas extends ScrollPane {
+  
+  private val root: ScrollPane = this
+  
 //  ; {
-//    val root: ScrollPane = this
 //    root.setFocusTraversable(false)
 //  }
   
   val (coldGC, hotGC) = {
-    val cold, hot = {
-      val canvas = new Canvas
-      // full screen canvas
-      val screen = Screen.getPrimary().getVisualBounds();
-      canvas.setWidth(screen.getWidth())
-      canvas.setHeight(screen.getHeight())
-      canvas
+    val cold, hot = { // full screen canvas
+      val screen = Screen.getPrimary().getVisualBounds()
+      new Canvas(screen.getWidth(), screen.getHeight())
     }
-    this.getChildren.add(new StackPane(cold, hot))
+    
+    root.setContent(new StackPane(cold, hot))
     (cold.getGraphicsContext2D, hot.getGraphicsContext2D)
   }
   
   lazy val centerProperty = {
-    val width = this.widthProperty
-    val height = this.heightProperty
+    val width = root.widthProperty
+    val height = root.heightProperty
     new ObjectBinding[Point2D] {
 			super.bind(width, height)
 			override def computeValue = new Point2D(width.get()/2, height.get()/2)
