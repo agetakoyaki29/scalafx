@@ -2,8 +2,9 @@
 lazy val root = (project in file("."))
   .settings(fxmlSettings: _*)
   .settings(
+    organization := "com.github.agetakoyaki29",
     name := "scalafx",
-    version := "0.0",
+    version := "1.0",
     scalaVersion := "2.11.8",
 
     libraryDependencies += scalactic,
