@@ -1,4 +1,4 @@
 
-* GrassedCanvas.apply(index: Int): Canvas
-
 * impl GraphicsContextExtension funcs
+
+* canvases, gcs = OvserbalSeq
