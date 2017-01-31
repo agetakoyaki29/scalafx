@@ -11,26 +11,26 @@ import javafx.scene.control.ScrollPane.ScrollBarPolicy
 
 
 class GlassedCanvas extends ScrollPane {
-  
+
   private val root: ScrollPane = this
-  
+
   ; {
     root.setPannable(false)
     root.setHbarPolicy(ScrollBarPolicy.NEVER)
     root.setVbarPolicy(ScrollBarPolicy.NEVER)
 //    root.setFocusTraversable(false)
   }
-  
+
   val (coldGC, hotGC) = {
     val cold, hot = { // full screen canvas
       val screen = Screen.getPrimary().getVisualBounds()
       new Canvas(screen.getWidth(), screen.getHeight())
     }
-    
+
     root.setContent(new StackPane(cold, hot))
     (cold.getGraphicsContext2D, hot.getGraphicsContext2D)
   }
-  
+
   lazy val centerProperty = {
     val width = root.widthProperty
     val height = root.heightProperty
@@ -39,5 +39,5 @@ class GlassedCanvas extends ScrollPane {
 			override def computeValue = new Point2D(width.get()/2, height.get()/2)
 		}
   }
-  
+
 }
