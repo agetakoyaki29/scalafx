@@ -11,7 +11,7 @@ object GraphicsContextExtension {
 
 
 class GraphicsContextExtension(that : GraphicsContext) {
-  def fillCircle(x: Double, y: Double, w: Double, h: Double) = that.fillArc(x, y, w, h, 0, 360, ArcType.OPEN)
-  def strokeCircle(x: Double, y: Double, w: Double, h: Double) = that.strokeArc(x, y, w, h, 0, 360, ArcType.OPEN)
+  // def fillCircle(x: Double, y: Double, w: Double, h: Double) = that.fillOval(x, y, w, h)
+  // def strokeCircle(x: Double, y: Double, w: Double, h: Double) = that.strokeOval(x, y, w, h)
 
 }
